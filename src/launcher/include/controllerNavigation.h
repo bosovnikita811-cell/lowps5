@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QElapsedTimer>
 #include <QHash>
+#include <QSet>
 #include <QTimer>
 
 #include <SDL3/SDL.h>
