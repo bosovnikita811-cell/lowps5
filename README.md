@@ -1,6 +1,15 @@
 # LowPS5 — Оптимизированный эмулятор PlayStation 5 для слабых ПК (Windows 11)
 
-**LowPS5** is a PS5 emulator for PC based on the **KytyPS5** source code, specifically optimized for very low-end devices on **Windows 11 (x64)**. Featuring lightweight VRAM/RAM management, smart upscaling (`FSR` / linear scaling), SPIR-V shader optimization, and Windows 11 EcoQoS / Thread Director tuning, it boosts performance to deliver smoother frame pacing and lower hardware overhead on budget-friendly PCs and laptops with integrated or low-VRAM GPUs.
+**LOWps5** is an experimental PS5 emulator for PC based on **KytyPS5**, with a low-spec profile for **Windows 11 x64**. It includes reduced initial cache allocations, configurable render scale, shader/pipeline caching, and linear/nearest presentation filtering. These changes may reduce overhead on some integrated GPUs, but they do not guarantee that a game will boot or run at playable speed.
+
+## Важный статус функций
+
+- **540p (960×540):** доступно как разрешение окна лаунчера. Это само по себе не заставляет игру рендерить внутренний кадр в 540p; за это отвечает отдельный render scale, если игра/рендер-путь его допускает.
+- **Текущий --fsr:** в swapchain.cpp выбирает линейную фильтрацию при vkCmdBlitImage (или nearest при выключенном флаге). Это **не AMD FSR 1/2/3**.
+- **FSR 2 / FSR 3 и генерация кадров:** не реализованы в текущем коде. Для настоящего temporal upscaling нужны история кадров, глубина, motion vectors и jitter; frame generation дополнительно требует корректной интеграции frame pacing и latency.
+- **DualSense / DualShock 4:** в коде присутствуют обработка событий тачпада и пути вибрации/гаптики. Совместимость зависит от устройства, режима USB/Bluetooth и драйверов; это не равнозначно проверке на всех контроллерах.
+- **Управление лаунчером геймпадом:** в ветке LOWps5 добавлена базовая навигация через SDL3: крестовина/левый стик — перемещение по элементам, ✕/Start — подтверждение, ○ — назад, L1/R1 — переход к предыдущему/следующему элементу. Она требует проверки на реальных DS4/DualSense и клавиатурных фокусах конкретных окон.
+- **8 ГБ RAM:** сниженные кэши уменьшают стартовые аллокации, но не делают 8 ГБ гарантированным системным минимумом. Эмуляция PS5 остаётся экспериментальной и может упираться в память, драйвер или несовместимость конкретной игры.
 
 ---
 
@@ -49,7 +58,7 @@ lowps5.exe --game <dir|elf|zar> [options]
   --low-spec <true|false>              Включить оптимизации для слабых ПК (по умолчанию: true)
   --render-scale <25-100>              Масштаб внутреннего разрешения рендеринга в % (по умолчанию: 75)
   --max-anisotropy <1-16>              Лимит анизотропной фильтрации текстур (по умолчанию: 2)
-  --fsr <true|false>                   Умное масштабирование кадра при выводе (по умолчанию: true)
+  --fsr <true|false>                   Линейная/nearest-фильтрация вывода (не AMD FSR; по умолчанию: true)
   --screen-width <num>                 Ширина окна (например: 640, 854, 960, 1280; по умолчанию: 1280)
   --screen-height <num>                Высота окна (например: 360, 480, 540, 720; по умолчанию: 720)
   --present-mode <Fifo|Mailbox|Immediate> Режим синхронизации кадров Vulkan (по умолчанию: Mailbox)

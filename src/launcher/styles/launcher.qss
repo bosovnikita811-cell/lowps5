@@ -1,7 +1,246 @@
+/*
+ * LOWps5 — dark, controller-friendly launcher theme.
+ * Uses system-installed UI fonts only; no font binaries are bundled.
+ */
+* {
+    font-family: "Segoe UI", "Noto Sans", Arial;
+    font-size: 10pt;
+}
+
+QWidget {
+    color: #EAF1FF;
+    background-color: #0A1020;
+    selection-background-color: #0878D1;
+    selection-color: #FFFFFF;
+}
+
+QDialog, QMainWindow {
+    background-color: #080D19;
+}
+
+QLabel {
+    background: transparent;
+    color: #EAF1FF;
+}
+
+QGroupBox {
+    background-color: #0D1629;
+    border: 1px solid #253654;
+    border-radius: 10px;
+    margin-top: 14px;
+    padding: 14px 10px 10px 10px;
+    font-weight: 600;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 12px;
+    padding: 0 7px;
+    color: #CDE6FF;
+    background-color: #0D1629;
+}
+
+QPushButton, QToolButton {
+    color: #F4F8FF;
+    background-color: #14213A;
+    border: 1px solid #2B4165;
+    border-radius: 8px;
+    padding: 7px 12px;
+    min-height: 20px;
+}
+
+QPushButton:hover, QToolButton:hover {
+    background-color: #1A3154;
+    border-color: #379BEB;
+}
+
+QPushButton:pressed, QToolButton:pressed {
+    background-color: #064E91;
+    border-color: #55B9FF;
+}
+
+QPushButton:checked, QToolButton:checked {
+    background-color: #075EA8;
+    border-color: #38A7F7;
+}
+
+QPushButton:disabled, QToolButton:disabled {
+    color: #7786A0;
+    background-color: #101827;
+    border-color: #1D2A40;
+}
+
+QPushButton:focus, QToolButton:focus,
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus,
+QDoubleSpinBox:focus, QAbstractItemView:focus {
+    border: 1px solid #35AFFF;
+}
+
+QLineEdit, QTextEdit, QPlainTextEdit, QComboBox,
+QSpinBox, QDoubleSpinBox, QDateEdit, QTimeEdit, QDateTimeEdit {
+    color: #F1F5FF;
+    background-color: #0C1527;
+    border: 1px solid #2A3C5B;
+    border-radius: 7px;
+    padding: 6px 9px;
+    selection-background-color: #0878D1;
+    selection-color: #FFFFFF;
+}
+
+QComboBox::drop-down, QDateEdit::drop-down,
+QTimeEdit::drop-down, QDateTimeEdit::drop-down {
+    width: 25px;
+    border: 0;
+    border-left: 1px solid #293B59;
+    background-color: #14213A;
+}
+
+QComboBox QAbstractItemView {
+    color: #F1F5FF;
+    background-color: #101B30;
+    border: 1px solid #2A3C5B;
+    selection-background-color: #0878D1;
+    selection-color: #FFFFFF;
+    outline: 0;
+}
+
+QTabWidget::pane {
+    background-color: #0B1425;
+    border: 1px solid #263957;
+    border-radius: 8px;
+    top: -1px;
+}
+
+QTabBar::tab {
+    color: #B9C8E1;
+    background-color: #10192B;
+    border: 1px solid #263957;
+    border-bottom: 0;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: 9px 14px;
+    margin-right: 4px;
+}
+
+QTabBar::tab:selected {
+    color: #FFFFFF;
+    background-color: #075EA8;
+    border-color: #168DE2;
+}
+
+QTabBar::tab:hover:!selected {
+    background-color: #1A2A45;
+    color: #EAF4FF;
+}
+
+QCheckBox, QRadioButton {
+    spacing: 8px;
+    color: #EAF1FF;
+    background: transparent;
+}
+
+QCheckBox::indicator, QRadioButton::indicator {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #435A7B;
+    background-color: #101A2C;
+}
+
+QCheckBox::indicator { border-radius: 4px; }
+QRadioButton::indicator { border-radius: 8px; }
+
+QCheckBox::indicator:checked, QRadioButton::indicator:checked {
+    background-color: #0878D1;
+    border: 1px solid #55B9FF;
+}
+
+QSlider::groove:horizontal {
+    height: 5px;
+    background-color: #263957;
+    border-radius: 2px;
+}
+
+QSlider::sub-page:horizontal {
+    background-color: #168DE2;
+    border-radius: 2px;
+}
+
+QSlider::handle:horizontal {
+    width: 15px;
+    margin: -5px 0;
+    border-radius: 7px;
+    background-color: #EAF6FF;
+    border: 2px solid #0878D1;
+}
+
+QProgressBar {
+    color: #FFFFFF;
+    background-color: #10192B;
+    border: 1px solid #263957;
+    border-radius: 6px;
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    background-color: #0878D1;
+    border-radius: 5px;
+}
+
+QScrollBar:vertical, QScrollBar:horizontal {
+    background-color: #0B1323;
+    border: 0;
+    margin: 2px;
+}
+
+QScrollBar:vertical { width: 12px; }
+QScrollBar:horizontal { height: 12px; }
+
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+    background-color: #304767;
+    border-radius: 5px;
+    min-height: 24px;
+    min-width: 24px;
+}
+
+QScrollBar::handle:vertical:hover, QScrollBar::handle:horizontal:hover {
+    background-color: #0878D1;
+}
+
+QScrollBar::add-line, QScrollBar::sub-line {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+QMenu {
+    color: #EAF1FF;
+    background-color: #101A2D;
+    border: 1px solid #2A3C5B;
+    padding: 5px;
+}
+
+QMenu::item {
+    padding: 7px 24px 7px 10px;
+    border-radius: 4px;
+}
+
+QMenu::item:selected {
+    color: #FFFFFF;
+    background-color: #075EA8;
+}
+
+QToolTip {
+    color: #F1F5FF;
+    background-color: #14213A;
+    border: 1px solid #36547C;
+    padding: 5px 7px;
+}
+
 QListView#cfgs_grid {
-    background: palette(base);
-    border: 1px solid palette(mid);
-    color: palette(text);
+    background: #0E172A;
+    border: 1px solid #2A3B59;
+    color: #EAF1FF;
 }
 
 QListView#cfgs_grid::item {
@@ -10,43 +249,43 @@ QListView#cfgs_grid::item {
 
 GameListTreeWidget#cfgs_list {
     background: transparent;
-    border: 1px solid palette(mid);
-    color: palette(text);
+    border: 1px solid #2A3B59;
+    color: #EAF1FF;
     outline: 0;
 }
 
 GameListTreeWidget#cfgs_list::item {
     background: transparent;
-    border-bottom: 1px solid palette(mid);
+    border-bottom: 1px solid #2A3B59;
     padding: 4px;
 }
 
 GameListTreeWidget#cfgs_list::item:selected {
-    background: palette(highlight);
-    color: palette(highlighted-text);
+    background: #0878D1;
+    color: #FFFFFF;
 }
 
 GameListTreeWidget#cfgs_list QHeaderView::section {
-    background: palette(button);
-    color: palette(button-text);
+    background: #14213A;
+    color: #EAF1FF;
     border: 0;
-    border-right: 1px solid palette(mid);
-    border-bottom: 1px solid palette(mid);
+    border-right: 1px solid #2A3B59;
+    border-bottom: 1px solid #2A3B59;
     padding: 5px 6px;
 }
 
 QLineEdit#search_line_edit {
-    background: palette(base);
-    border: 1px solid palette(mid);
+    background: #0E172A;
+    border: 1px solid #2A3B59;
     border-radius: 4px;
-    color: palette(text);
+    color: #EAF1FF;
     padding: 5px 8px;
-    selection-background-color: palette(highlight);
-    selection-color: palette(highlighted-text);
+    selection-background-color: #0878D1;
+    selection-color: #FFFFFF;
 }
 
 QLineEdit#search_line_edit:focus {
-    border-color: palette(highlight);
+    border-color: #0878D1;
 }
 
 QToolButton#grid_view_button,
@@ -69,8 +308,8 @@ QToolButton#input_mapping_button:hover,
 QToolButton#edit_button:hover,
 QToolButton#trophy_overview_button:hover,
 QToolButton#delete_button:hover {
-    background: palette(button);
-    border-color: palette(mid);
+    background: #14213A;
+    border-color: #2A3B59;
 }
 
 QToolButton#grid_view_button:checked,
@@ -81,18 +320,18 @@ QToolButton#input_mapping_button:pressed,
 QToolButton#edit_button:pressed,
 QToolButton#trophy_overview_button:pressed,
 QToolButton#delete_button:pressed {
-    background: palette(midlight);
+    background: #20324F;
 }
 
 QComboBox#game_status_editor {
     background: transparent;
     border: 0;
-    color: palette(text);
+    color: #EAF1FF;
     padding-left: 2px;
 }
 
 QComboBox#game_status_editor:focus {
-    background: palette(button);
+    background: #14213A;
     border-radius: 3px;
 }
 
@@ -101,28 +340,28 @@ QComboBox#game_status_editor::drop-down {
 }
 
 QComboBox#game_status_editor QAbstractItemView {
-    background: palette(base);
-    color: palette(text);
-    selection-background-color: palette(highlight);
-    selection-color: palette(highlighted-text);
+    background: #0E172A;
+    color: #EAF1FF;
+    selection-background-color: #0878D1;
+    selection-color: #FFFFFF;
 }
 
 QLineEdit#game_comment_editor {
     background: transparent;
     border: 0;
-    color: palette(text);
+    color: #EAF1FF;
     padding-left: 2px;
-    selection-background-color: palette(highlight);
-    selection-color: palette(highlighted-text);
+    selection-background-color: #0878D1;
+    selection-color: #FFFFFF;
 }
 
 QLineEdit#game_comment_editor:focus {
-    background: palette(base);
-    border: 1px solid palette(mid);
+    background: #0E172A;
+    border: 1px solid #2A3B59;
     border-radius: 3px;
 }
 
 QLabel#game_status_indicator {
-    border: 1px solid palette(base);
+    border: 1px solid #0E172A;
     border-radius: 6px;
 }
